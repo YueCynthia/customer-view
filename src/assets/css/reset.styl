@@ -1,0 +1,118 @@
+* {
+  box-sizing: border-box;
+  margin:0;
+  padding:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  -ms-overflow-style:none;
+  overflow:-moz-scrollbars-none;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // 隐藏系统自带背景
+}
+
+::-webkit-scrollbar{
+  display:none;
+}
+
+html,
+body {
+  font-family: "PingFang SC","SimHei","STHeiti","Helvetica Neue", "Helvetica","Arial", "sans-serif";
+  user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-tap-highlight-color: transparent;
+  background: @bg-main-color;
+  color: @font-default-color;
+  font-size: @font-size-medium;
+  min-height: 100%;
+  height: 100%;
+  width: 100%;
+  font-size: @font-size-medium;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  -webkit-overflow-scrolling: touch;
+  touch-action: manipulation;
+}
+a {
+  text-decoration: none;
+}
+/* 按钮文本不可选 */
+input[type=button],button{-webkit-appearance:none;-webkit-user-select:none;}
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+/* 加载不出来的图片不要显示灰色边框 */
+img:not([src]),img[src=""] {opacity: 0;}
+ul, ol {list-style: none;}
+input, select, button, textarea {
+  border: none;
+  outline: none;
+  background: none;
+}
+textarea { resize: none; }
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  color: @placeholder;
+}
+input::-moz-placeholder,
+textarea::-webkit-input-placeholder {
+  /* Mozilla Firefox 19+ */
+  color: @placeholder;
+}
+input:-moz-placeholder,
+textarea::-webkit-input-placeholder {
+  /* Mozilla Firefox 4 to 18 */
+  color: @placeholder;
+}
+input:-ms-input-placeholder,
+textarea::-webkit-input-placeholder {
+  /* Internet Explorer 10-11 */
+  color: @placeholder;
+}
+i{
+  font-style: normal;
+}
+// 按钮点击阴影效果
+button {
+  position: relative;
+  &::before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    border: inherit;
+    border-color: #000;
+    border-radius: inherit;
+    -webkit-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    content: ' ';
+  }
+  &:active::before {opacity: 0.1;}
+}
+.mask-wrapper {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 99999;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.fl {float: left;}
+.fr {float: right;}
+.clearfix {
+  zoom: 1;
+}
+.clearfix:after {
+  content: '';
+  display: block;
+  clear: both;
+}

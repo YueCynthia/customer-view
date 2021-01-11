@@ -1,4 +1,4 @@
-# tkp-customer-view
+# customer-view
 
 ## Project setup
 ```
